@@ -1,0 +1,8 @@
+*volume
+*build
+*dist
+*tmp
+.env
+.vscode
+run.spec
+*__pycache__
