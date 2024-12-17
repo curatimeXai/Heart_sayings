@@ -41,7 +41,7 @@ run-container:
 	-e "FLASK_APP=idioms" \
 	-e "FLASK_ENV=production" \
 	-e "FLASK_DEBUG=True" \
-	-p 80:8080 app:latest
+	-p 8080:80 app:latest
 
 .phony: stop-container
 stop-container:
@@ -59,3 +59,16 @@ run:
 	-e "FLASK_ENV=production" \
 	-e "FLASK_DEBUG=True" \
 	-p 8080:80 app:latest
+
+.phony: apache
+apache:
+	docker run --rm -d -p 8080:80 \
+	-e "MYSQL_HOST=172.17.0.2" \
+	-e "MYSQL_PORT=3306" \
+	-e "MYSQL_USER=root" \
+	-e "MYSQL_PASSWORD=115599" \
+	-e "MYSQL_DB=idioms" \
+	-e "FLASK_APP=idioms" \
+	-e "FLASK_ENV=production" \
+	-e "FLASK_DEBUG=True" \
+	--name flask-apache flask-apache

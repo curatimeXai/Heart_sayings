@@ -5,17 +5,17 @@ from .repository import get_all_ideoms
 bp = Blueprint('main', __name__)
 
 # Home page
-@bp.route('/', methods = ['GET']) 
+@bp.route('/heart-sayings', methods = ['GET']) 
 def index():
     data = get_all_ideoms()
     return render_template("index.html", result=data)
 
 # Project page
-@bp.route('/project') 
+@bp.route('/heart-sayings/project') 
 def project():
     return render_template("project.html")
 
 # Help page
-@bp.route('/help') 
+@bp.route('/heart-sayings/help') 
 def help():
     return render_template("help.html")

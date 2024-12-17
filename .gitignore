@@ -6,3 +6,5 @@
 .vscode
 run.spec
 *__pycache__
+httpd.conf
+wsgi.py
